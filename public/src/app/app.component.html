@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Restful Tasks</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+  <div class='container'>
+    <section class='tasks'>
+      <h1>{{ title }}</h1>
+      <button class='btn btn-default' (click)="getTasksFromService()">Get all tasks</button>
+      <section class='allTasks'>
+        <ul>
+          <li class='task' *ngFor="let task of tasks">
+            <td>{{task.title}}</td>
+            <td><button class='btn btn-default' (click)="getTask(task._id)">Show</button></td>
+          </li>
+        </ul>
+        <section class='oneTask' *ngIf='oneTask'>
+          <p>{{ oneTask.title }}</p>
+          <p>{{ oneTask.description }}</p>
+        </section>
+      </section>
+    </section>
+  </div>
+</body>
+</html>
